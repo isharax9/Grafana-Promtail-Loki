@@ -1,0 +1,64 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+clients:
+  - url: http://34.206.172.17:3100/loki/api/v1/push
+
+positions:
+  filename: /tmp/positions.yaml
+
+scrape_configs:
+  - job_name: "api-error"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "api-error"
+          server: "Fireflies-Dev-Server"
+          __path__: "/root/.pm2/logs/api-error.log"
+
+  - job_name: "api-out"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "api-out"
+          server: "Fireflies-Dev-Server"
+          __path__: "/root/.pm2/logs/api-out.log"
+
+  - job_name: "cms-dev-error"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "cms-dev-error"
+          server: "Fireflies-Dev-Server"
+          __path__: "/root/.pm2/logs/cms-dev-error.log"
+
+  - job_name: "cms-dev-out"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "cms-dev-out"
+          server: "Fireflies-Dev-Server"
+          __path__: "/root/.pm2/logs/cms-dev-out.log"
+
+  - job_name: "platform-error"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "platform-error"
+          server: "Fireflies-Dev-Server"
+          __path__: "/root/.pm2/logs/platform-error.log"
+
+  - job_name: "platform-out"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "platform-out"
+          server: "Fireflies-Dev-Server"
+          __path__: "/root/.pm2/logs/platform-out.log"
