@@ -1,0 +1,100 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+clients:
+  - url: http://34.206.172.17:3100/loki/api/v1/push
+
+positions:
+  filename: /tmp/positions.yaml
+
+scrape_configs:
+  - job_name: "api-error"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "api-error"
+          server: "casineo-platform-dev"
+          __path__: "/root/.pm2/logs/api-error.log"
+
+  - job_name: "api-out"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "api-out"
+          server: "casineo-platform-dev"
+          __path__: "/root/.pm2/logs/api-out.log"
+
+  - job_name: "chat-error"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "chat-error"
+          server: "casineo-platform-dev"
+          __path__: "/root/.pm2/logs/chat-error.log"
+
+  - job_name: "chat-out"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "chat-out"
+          server: "casineo-platform-dev"
+          __path__: "/root/.pm2/logs/chat-out.log"
+
+  - job_name: "ffr-error"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "ffr-error"
+          server: "casineo-platform-dev"
+          __path__: "/root/.pm2/logs/ffr-error.log"
+
+  - job_name: "ffr-out"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "ffr-out"
+          server: "casineo-platform-dev"
+          __path__: "/root/.pm2/logs/ffr-out.log"
+
+  - job_name: "frontend-error"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "frontend-error"
+          server: "casineo-platform-dev"
+          __path__: "/root/.pm2/logs/frontend-error.log"   
+
+  - job_name: "frontend-out"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "frontend-out"
+          server: "casineo-platform-dev"
+          __path__: "/root/.pm2/logs/frontend-out.log"     
+
+  - job_name: "ggr-error"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "ggr-error"
+          server: "casineo-platform-dev"
+          __path__: "/root/.pm2/logs/ggr-error.log"   
+
+  - job_name: "ggr-out"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "ggr-out"
+          server: "casineo-platform-dev"
+          __path__: "/root/.pm2/logs/ggr-out.log"   
