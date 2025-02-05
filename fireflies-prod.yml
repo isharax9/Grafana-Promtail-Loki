@@ -1,0 +1,82 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+clients:
+  - url: http://54.194.24.211:3100/loki/api/v1/push
+
+positions:
+  filename: /tmp/positions.yaml
+
+scrape_configs:
+  - job_name: "cms-error"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "cms-error"
+          server: "Fireflies-Prod-Server"
+          __path__: "/root/.pm2/logs/cms-error.log"
+
+  - job_name: "cms-out"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "cms-out"
+          server: "Fireflies-Prod-Server"
+          __path__: "/root/.pm2/logs/cms-out.log"
+
+  - job_name: "node-error"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "node-error"
+          server: "Fireflies-Prod-Server"
+          __path__: "/root/.pm2/logs/node-error.log"
+
+  - job_name: "node-out"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "node-out"
+          server: "Fireflies-Prod-Server"
+          __path__: "/root/.pm2/logs/node-out.log"
+
+  - job_name: "npm-run-serve-error"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "npm-run-serve-error"
+          server: "Fireflies-Prod-Server"
+          __path__: "/root/.pm2/logs/npm-run-serve-error.log"
+
+  - job_name: "npm-run-serve-out"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "npm-run-serve-out"
+          server: "Fireflies-Prod-Server"
+          __path__: "/root/.pm2/logs/npm-run-serve-out.log"
+
+  - job_name: "server-error"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "server-error"
+          server: "Fireflies-Prod-Server"
+          __path__: "/root/.pm2/logs/server-error.log"   
+
+  - job_name: "server-out"
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: "server-out"
+          server: "Fireflies-Prod-Server"
+          __path__: "/root/.pm2/logs/server-out.log"
